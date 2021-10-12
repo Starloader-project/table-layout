@@ -190,6 +190,7 @@ public class TableLayoutConstraints implements TableLayoutConstants {
    *
    * @return a string in the form "row 1, column 1, row 2, column 2, horizontal justification, vertical justification"
    */
+  @Override
   public String toString() {
     StringBuffer buffer = new StringBuffer();
 

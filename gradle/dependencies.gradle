@@ -1,5 +1,0 @@
-ext {
-  libraries = [
-    junit: "junit:junit:4.12",
-  ]
-}

@@ -1,19 +1,78 @@
-allprojects {
-  group = "info.clearthought"
-  version = "4.3.1-SNAPSHOT"
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'eclipse'
 }
 
-subprojects {
-  apply plugin: "java"
-  apply from: "${rootDir}/gradle/compile.gradle"
-  apply from: "${rootDir}/gradle/dependencies.gradle"
-  apply from: "${rootDir}/gradle/versioning.gradle"
+group 'de.geolykt.starloader'
+archivesBaseName = 'tableLayout'
+version '4.4.0'
 
-  repositories {
-    jcenter()
-  }
+// I know that this application was REALLY not meant for modern versions of java, but JPMS requires J9+, so we used J11.
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '11'
 
-  version = rootProject.version
+repositories {
+    // Only needed for tests
+    mavenCentral()
+}
 
-  test.testLogging.setExceptionFormat("full")
+dependencies {
+    // https://mvnrepository.com/artifact/junit/junit
+    testImplementation 'junit:junit:4.13.2'
+}
+
+jar {
+    manifest.attributes(
+        "Built-By": System.properties['user.name'],
+        "Created-By": System.properties['java.vm.version'] + " (" + System.properties['java.vm.vendor'] + ")",
+        "Implementation-Title": project.name,
+        "Implementation-Version": project.version,
+        "Implementation-Vendor": "Starloader-project"
+    )
+}
+
+javadoc {
+    options {
+        addBooleanOption('html5', true)
+        tags("apiNote:a:API Notice:", "implSpec:a:Implementation Specification:", "implNote:a:Implementation Notice:")
+        links "https://docs.oracle.com/en/java/javase/16/docs/api/"
+    }
+
+    // see https://stackoverflow.com/a/56641766
+    doLast {
+        // Append the fix to the file
+        def searchScript = new File(destinationDir, '/search.js')
+        searchScript.append '\n\n' +
+            'getURLPrefix = function(ui) {\n' +
+            '    return \'\';\n' +
+            '};\n'
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+publishing {
+    publications {
+        plugin(MavenPublication) { publication ->
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+
+            from components['java']
+
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
 }

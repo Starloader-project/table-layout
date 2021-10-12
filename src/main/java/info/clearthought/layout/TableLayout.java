@@ -822,6 +822,7 @@ public class TableLayout implements LayoutManager2, Serializable, TableLayoutCon
    * @return a string representing the columns and row sizes in the form
    *         "{{col0, col1, col2, ..., colN}, {row0, row1, row2, ..., rowM}}"
    */
+  @Override
   public String toString() {
     int counter;
 
@@ -1418,6 +1419,7 @@ public class TableLayout implements LayoutManager2, Serializable, TableLayoutCon
    *
    * @return a dimension indicating the container's preferred size
    */
+  @Override
   public Dimension preferredLayoutSize(Container container) {
     return calculateLayoutSize(container, PREFERRED);
   }
@@ -1435,6 +1437,7 @@ public class TableLayout implements LayoutManager2, Serializable, TableLayoutCon
    *
    * @return a dimension indicating the container's minimum size
    */
+  @Override
   public Dimension minimumLayoutSize(Container container) {
     return calculateLayoutSize(container, MINIMUM);
   }
@@ -1767,6 +1770,7 @@ public class TableLayout implements LayoutManager2, Serializable, TableLayoutCon
      *
      * @return a string in the form "(col1, row1, col2, row2, vAlign, hAlign) component"
      */
+    @Override
     public String toString() {
       TableLayoutConstraints c = new TableLayoutConstraints(cr1[C], cr1[R], cr2[C], cr2[R], alignment[C], alignment[R]);
 
