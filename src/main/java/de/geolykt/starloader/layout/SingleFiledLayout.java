@@ -1,4 +1,4 @@
-package info.clearthought.layout;
+package de.geolykt.starloader.layout;
 
 import java.awt.Component;
 import java.awt.Container;

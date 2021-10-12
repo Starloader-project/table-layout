@@ -1,4 +1,4 @@
-package info.clearthought.layout;
+package de.geolykt.starloader.layout;
 
 import java.awt.Component;
 import java.awt.ComponentOrientation;
@@ -354,7 +354,7 @@ public class TableLayout implements LayoutManager2, Serializable, TableLayoutCon
       }
 
     // Create an empty list of components
-    list = new LinkedList<Entry>();
+    list = new LinkedList<>();
 
     // Indicate that the cell sizes are not known
     dirty = true;
@@ -857,7 +857,7 @@ public class TableLayout implements LayoutManager2, Serializable, TableLayoutCon
    * @see #getOverlappingEntry
    */
   public List<Entry> getInvalidEntry() {
-    LinkedList<Entry> listInvalid = new LinkedList<Entry>();
+    LinkedList<Entry> listInvalid = new LinkedList<>();
 
     try {
       ListIterator<Entry> iterator = list.listIterator(0);
@@ -886,7 +886,7 @@ public class TableLayout implements LayoutManager2, Serializable, TableLayoutCon
    * @see #getInvalidEntry
    */
   public List<Entry> getOverlappingEntry() {
-    LinkedList<Entry> listOverlapping = new LinkedList<Entry>();
+    LinkedList<Entry> listOverlapping = new LinkedList<>();
 
     try {
       // Count constraints

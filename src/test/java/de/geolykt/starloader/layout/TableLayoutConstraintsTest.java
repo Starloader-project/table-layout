@@ -1,9 +1,12 @@
-package info.clearthought.layout;
+package de.geolykt.starloader.layout;
 
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
+
+import de.geolykt.starloader.layout.TableLayoutConstants;
+import de.geolykt.starloader.layout.TableLayoutConstraints;
 
 public class TableLayoutConstraintsTest {
 

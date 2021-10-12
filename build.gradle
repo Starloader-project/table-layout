@@ -21,6 +21,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
+java {
+    modularity.inferModulePath.set(true)
+}
+
 jar {
     manifest.attributes(
         "Built-By": System.properties['user.name'],

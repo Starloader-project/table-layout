@@ -1,6 +1,5 @@
-package info.clearthought.layout;
+package de.geolykt.starloader.layout;
 
-import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
 /**
@@ -117,12 +116,12 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 
       // Get the first column (assume component is in only one column)
       String tokenA = st.nextToken();
-      col1 = new Integer(tokenA).intValue();
+      col1 = Integer.parseInt(tokenA);
       col2 = col1;
 
       // Get the first row (assume component is in only one row)
       String tokenB = st.nextToken();
-      row1 = new Integer(tokenB).intValue();
+      row1 = Integer.parseInt(tokenB);
       row2 = row1;
 
       // Get next two tokens
@@ -131,8 +130,8 @@ public class TableLayoutConstraints implements TableLayoutConstants {
 
       try {
         // Attempt to use tokens A and B as col2 and row2
-        col2 = new Integer(tokenA).intValue();
-        row2 = new Integer(tokenB).intValue();
+        col2 = Integer.parseInt(tokenA);
+        row2 = Integer.parseInt(tokenB);
 
         // Get next two tokens
         tokenA = st.nextToken();
@@ -169,7 +168,6 @@ public class TableLayoutConstraints implements TableLayoutConstants {
         vAlign = BOTTOM;
       else
         throw new RuntimeException();
-    } catch (NoSuchElementException error) {
     } catch (RuntimeException error) {
       throw new IllegalArgumentException("Expected constraints in one of the following formats:\n"
           + "  col1, row1\n  col1, row1, col2, row2\n" + "  col1, row1, hAlign, vAlign\n"

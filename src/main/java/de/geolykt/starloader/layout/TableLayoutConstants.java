@@ -1,4 +1,4 @@
-package info.clearthought.layout;
+package de.geolykt.starloader.layout;
 
 /**
  * TableLayoutConstants define the constants used by all the TableLayout classes.
