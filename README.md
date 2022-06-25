@@ -1,18 +1,23 @@
+Internally we now fully use GridBagLayout instead of TableLayout and therefore there is no longer a need to maintain
+this repository. It is now archived.
+
+---
+
 TableLayout - An Alternative to GridBagLayout
 =============================================
 
 ## Disclaimer required by the license
 
-I do not know from which exact version and source this repository stems from as such the disclaimer below is especially true:
+I do not know from which exact version and source this repository stems from and as such the disclaimer below is especially true:
 This work is derived from Clearthought's TableLayout, https://tablelayout.dev.java.net, by means of patch files
-rather than subclassing or composition.  Therefore, this work might not contain the latest fixes and features of TableLayout.
+rather than subclassing or composition. Therefore, this work might not contain the latest fixes and features of TableLayout.
 
 ##  Licensing issues
 
 Given that java.net is permamently down it is very hard to track down a working state of the code, and it is also hard to
 get/obtain the license that was active at that time (I know that this application was relicensed at some time) as sadly
 archive.org did not archive the repository to the fullest before java.net died. As such I used the license that was already
-found within upstream's codebase, The Clearthought Software License, Version 2.0. As such this repository does <b>NOT</b>
+found within upstream's codebase, The Clearthought Software License, Version 2.0. Therefore this repository does <b>NOT</b>
 have binary compatibillity with upstream as I am forced to rename all the packages.
 
 The current license also has the issue that it is rather vague on forks of forks. For the sake of aiding you, the forker
@@ -45,4 +50,3 @@ This repository has following changes:
  * Bumped Java to Java 11
  * Removed/Altered deprecated stuff
  * Use JPMS
-
